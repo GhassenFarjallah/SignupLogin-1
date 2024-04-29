@@ -20,7 +20,7 @@ public class UtilisateurControleur {
 
     @PostMapping(path="/connexion")
     public ResponseEntity<?> connecterUtilisateur(@RequestParam String email, @RequestParam String motDePasse){
-        String pseudo = utilisateurService.findUtilisateurByEmail(email);
+        String pseudo = utilisateurService.findUtilisateurByEmailAndPassword(email,motDePasse);
         if (pseudo != null){
             return ResponseEntity.ok(pseudo);
         }
